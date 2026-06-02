@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Selamat Ulang Tahun Falah – 18 Tahun</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* HERO BARU DENGAN FOTO ADIK FLOATING */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  position: relative;
+}
+
+.card {
+  max-width: 1100px;
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0,0,0,.5);
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.01);
+}
+
+.hero-img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-bottom: 2px solid rgba(255,215,0,0.4);
+}
+
+/* FOTO ADIK FLOATING (melayang) */
+.adik-floating {
+  position: absolute;
+  right: 25px;
+  bottom: 20px;
+  width: 170px;
+  z-index: 20;
+  animation: float 5s ease-in-out infinite;
+}
+
+.adik-floating img {
+  width: 100%;
+  border-radius: 50%;
+  border: 6px solid white;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0,0,0,.45);
+}
+
+.adik-floating::after {
+  content: "💖";
+  position: absolute;
+  top: -10px;
+  right: -5px;
+  font-size: 30px;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+.content {
+  padding: 40px;
+  text-align: center;
+}
+
+.bismillah {
+  font-size: 1rem;
+  opacity: .8;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 72px;
+  color: #FFD700;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  opacity: .9;
+  margin-bottom: 20px;
+}
+
+.typing {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #facc15;
+  min-height: 55px;
+  margin-bottom: 20px;
+  background: rgba(0,0,0,0.3);
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 60px;
+  backdrop-filter: blur(4px);
+}
+
+.age {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  background: #f59e0b;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.message {
+  line-height: 1.9;
+  font-size: 1.05rem;
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 40px;
+  background: rgba(0,0,0,0.25);
+  padding: 20px 25px;
+  border-radius: 28px;
+}
+
+/* PRAYER DENGAN WATERMARK FOTO ADIK (background opacity) */
+.prayer {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255,255,255,.05);
+  padding: 30px;
+  border-radius: 28px;
+  margin-top: 25px;
+  backdrop-filter: blur(4px);
+}
+
+.prayer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('adik.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 280px;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.prayer h3 {
+  color: #FFD700;
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+  position: relative;
+  z-index: 2;
+}
+
+.prayer p {
+  position: relative;
+  z-index: 2;
+}
+
+.footer {
+  margin-top: 35px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: rgba(0,0,0,0.3);
+  padding: 18px;
+  border-radius: 60px;
+}
+
+.glow {
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 8px #FFD700; }
+  to { text-shadow: 0 0 30px #FFD700, 0 0 50px #ffaa33; }
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 48px;
+  }
+  .hero-img {
+    height: 280px;
+  }
+  .content {
+    padding: 25px;
+  }
+  .typing {
+    font-size: 1rem;
+    padding: 6px 16px;
+  }
+  .adik-floating {
+    width: 110px;
+    right: 12px;
+    bottom: 10px;
+  }
+  .adik-floating::after {
+    font-size: 22px;
+    top: -8px;
+    right: -6px;
+  }
+}
+
+@media (max-width: 550px) {
+  .adik-floating {
+    width: 90px;
+    right: 8px;
+    bottom: 8px;
+  }
+}
+</style>
+</head>
+<body>
+
+<canvas id="confetti"></canvas>
+
+<section class="hero">
+  <div class="card">
+    <img
+      src="family.jpg"
+      class="hero-img"
+      alt="Keluarga Falah"
+      onerror="this.src='https://placehold.co/1000x450/2c3e50/FFD700?text=Foto+Keluarga'"
+    >
+    
+    <!-- FOTO ADIK FLOATING (MELAYANG) -->
+    <div class="adik-floating">
+      <img src="adik.jpg" alt="Adik kecil Falah" onerror="this.src='https://placehold.co/300x300/ffd966/5e2a0c?text=Adik+💖'">
+    </div>
+
+    <div class="content">
+      <div class="bismillah">
+        بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
+      </div>
+
+      <h1 class="title glow">Happy Birthday</h1>
+      <h2>🎂 Abang Falah 🎂</h2>
+      <p class="subtitle">2 Juni 2008 • 2 Juni 2026</p>
+
+      <div class="typing" id="typing"></div>
+
+      <div class="age">✨ Hari Ini Genap 18 Tahun ✨</div>
+
+      <div class="message">
+        Anak kami tercinta,
+        <br><br>
+        Tak terasa waktu berjalan begitu cepat.<br>
+        Dari seorang anak kecil yang kami gendong dan kami jaga,
+        kini tumbuh menjadi seorang pemuda yang membanggakan.
+        <br><br>
+        Semoga setiap langkahmu selalu berada dalam ridha Allah SWT,
+        diberikan kesehatan,
+        kemudahan meraih cita-cita,
+        serta menjadi pribadi yang saleh,
+        berbakti kepada orang tua,
+        dan bermanfaat bagi banyak orang.
+      </div>
+
+      <div class="prayer">
+        <h3>🤲 Doa Dari Ayah, Mamah, dan Adik</h3>
+        <p>
+          Ya Allah...<br><br>
+          Panjangkan umur Falah dalam keberkahan.<br>
+          Sehatkan jasadnya.<br>
+          Lapangkan rezekinya.<br>
+          Mudahkan setiap urusannya.<br>
+          Terangi hatinya dengan iman dan ilmu.<br>
+          Jadikan ia anak yang saleh,<br>
+          berbakti kepada orang tua,<br>
+          serta sukses dunia dan akhirat.
+          <br><br>
+          Aamiin Ya Rabbal 'Alamin 🤲
+        </p>
+      </div>
+
+      <div class="footer">
+        ❤️ Dengan Penuh Cinta ❤️
+        <br><br>
+        Ayah, Mamah, Amii dan Rara
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // TYPING ANIMATION (teks baru sesuai permintaan)
+  const texts = [
+    "Selamat Ulang Tahun Falah 🎉",
+    "18 Tahun Penuh Cerita ❤️",
+    "Semoga Semua Cita-Cita Tercapai 🌟",
+    "Kebanggaan Ayah, Mamah, dan Adik 🤲"
+  ];
+
+  let count = 0;
+  let index = 0;
+  let currentText = '';
+  let letter = '';
+
+  (function type() {
+    if (count === texts.length) count = 0;
+    currentText = texts[count];
+    letter = currentText.slice(0, ++index);
+    document.getElementById('typing').innerHTML = letter;
+    if (letter.length === currentText.length) {
+      count++;
+      index = 0;
+      setTimeout(type, 2000);
+    } else {
+      setTimeout(type, 100);
+    }
+  })();
+</script>
+
+<script>
+  // CONFETTI PREMIUM EMAS
+  const canvas = document.getElementById('confetti');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let pieces = [];
+  const COLORS = ['#FFD966', '#FFC300', '#FFD700', '#F4C542', '#FFB347', '#FDEF9A'];
+
+  for (let i = 0; i < 220; i++) {
+    pieces.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 7 + 2,
+      d: Math.random() * 200,
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      speedX: (Math.random() - 0.5) * 1.2,
+    });
+  }
+
+  let angle = 0;
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
+      ctx.fillStyle = p.color;
+      ctx.fill();
+      ctx.shadowBlur = 5;
+      ctx.shadowColor = "#FFD700";
+    });
+    update();
+  }
+
+  function update() {
+    angle += 0.012;
+    pieces.forEach((p, i) => {
+      p.y += (Math.cos(angle + p.d) + 2 + p.r / 3) / 1.6;
+      p.x += Math.sin(angle) * 0.6 + p.speedX * 0.2;
+      if (p.y > canvas.height + 20) {
+        pieces[i] = {
+          x: Math.random() * canvas.width,
+          y: -15,
+          r: p.r,
+          d: p.d,
+          color: COLORS[Math.floor(Math.random() * COLORS.length)],
+          speedX: (Math.random() - 0.5) * 1.2
+        };
+      }
+      if (p.x > canvas.width + 30) p.x = -20;
+      if (p.x < -30) p.x = canvas.width + 20;
+    });
+  }
+
+  setInterval(draw, 24);
+
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+</script>
+</body>
+</html>
